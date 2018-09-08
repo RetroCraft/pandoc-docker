@@ -1,6 +1,7 @@
 FROM haskell:8
+FROM python:latest
 
-LABEL  maintainer="Stephen Steiner <ntwrkguru@gmail.com>"
+LABEL maintainer="James Ah Yong <retrocraft314@gmail.com>"
 
 # Install dependencies
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
@@ -20,5 +21,8 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 
 # Install cabal and then pandoc + citeproc
 RUN cabal update && cabal install pandoc pandoc-citeproc --force-reinstalls
+
+# Install panflute
+RUN pip3 install panflute
 
 WORKDIR /build
