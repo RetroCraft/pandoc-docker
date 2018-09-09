@@ -1,4 +1,4 @@
-FROM haskell:8
+FROM haskell:latest
 FROM python:latest
 
 LABEL maintainer="James Ah Yong <retrocraft314@gmail.com>"
